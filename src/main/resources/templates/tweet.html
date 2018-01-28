@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Hello Twitter</title>
+</head>
+<body>
+<h2>You connected to <span th:text="${twitterProfile.name}"></span> user.</h2>
+<p>This bot:</p>
+<ol>
+    <li>Searching twitter stream for the topmost tweeted in a particular domain.</li>
+    <li>Following the person with the most retweeted tweet for that day.</li>
+    <li>Retweeting the tweet.</li>
+</ol>
+<h3>Enter search query:</h3>
+
+<form action="#" th:action="@{/retweet}" th:object="${tweetContent}" method="post">
+    <input type="text" th:field="*{searchParameter}"/>
+    <input type="submit" value="Submit"/>
+</form>
+
+<p>Top tweeted: <span th:text="${toptweeted}"></span></p>
+<p>Following: <span th:text="${follow}"></span></p>
+<p>Retweet: <span th:text="${retweet}"></span></p>
+</body>
+</html>
